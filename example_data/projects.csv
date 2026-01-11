@@ -1,0 +1,6 @@
+id,name,lead_id,budget,status
+1,Website Redesign,1,50000,completed
+2,Mobile App,3,120000,in_progress
+3,CRM Integration,8,80000,in_progress
+4,Marketing Campaign,4,35000,completed
+5,Sales Dashboard,2,45000,planning

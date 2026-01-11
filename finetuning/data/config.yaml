@@ -1,0 +1,14 @@
+base:
+  task: question-answering
+  student_model_name: Qwen3-4B-Instruct-2507
+  teacher_model_name: deepseek.v3.1
+synthgen:
+  parallel_llm_calls: True
+  mutation_topics: [
+    "E-commerce: customers, orders, products, reviews",
+    "HR/Business: employees, departments, projects",
+    "Education: students, courses, enrollments",
+    "Healthcare: patients, doctors, appointments",
+    "Finance: accounts, transactions, payments",
+    "Social/Content: users, posts, comments",
+  ]

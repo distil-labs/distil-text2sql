@@ -1,0 +1,33 @@
+# Model files (large, hosted on HuggingFace)
+distil-qwen3-4b-text2sql/
+distil-qwen3-4b-text2sql-gguf/
+distil-qwen3-4b-text2sql-gguf-4bit/
+distil-model/
+*.gguf
+*.safetensors
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+ENV/
+env/
+.env
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Claude
+.claude/
+
+# Misc
+*.log
+.ipynb_checkpoints/
