@@ -1,5 +1,5 @@
-# Text2SQL: **Query your data in plain English**
-
+# Text2SQirreL 🐿️ : **Query your data in plain English**
+![text2sql-logo.png](text2sql-logo.png)
 *Turn natural language questions into SQL queries with a small, local model that matches cloud LLM accuracy.*
 
 We fine-tuned a small language model to convert plain English questions into executable SQL queries. Because it's small, you can run it locally on your own machine, no API keys, no cloud dependencies, full privacy. Load your CSV files, ask questions, get answers.
@@ -158,10 +158,10 @@ We evaluate using LLM-as-a-Judge (semantic equivalence), Exact Match, and ROUGE 
 
 The tuned 4B model matches the 685B teacher on semantic accuracy and actually exceeds it on exact match. On an M4 MacBook Pro, most queries return in under 2 seconds.
 
-### Evaluation Examples
+### Qualitative Examples
 
-The following examples demonstrate how fine-tuning improved the model's text-to-SQL generation capabilities.
-
+We compare the base QWEN3-4B with the fine tuned version on a few 
+cherry-picked exmaples to showcase the difference
 #### Example 1: Missing Aggregation Function
 
 **Schema:**
@@ -177,11 +177,11 @@ CREATE TABLE employees (
 
 **Question:** What is the total compensation (salary + bonus) per team?
 
-| Model | Prediction |
-|-------|------------|
-| Reference | `SELECT team, SUM(base_salary + bonus) FROM employees GROUP BY team;` |
-| Base | `SELECT team, (base_salary + bonus) AS total_compensation FROM employees GROUP BY team;` |
-| Tuned | `SELECT team, SUM(base_salary + bonus) FROM employees GROUP BY team;` |
+| Model         | Prediction |
+|---------------|------------|
+| Reference     | `SELECT team, SUM(base_salary + bonus) FROM employees GROUP BY team;` |
+| Base qwen3-4b | `SELECT team, (base_salary + bonus) AS total_compensation FROM employees GROUP BY team;` |
+| Tuned qwen3-4b| `SELECT team, SUM(base_salary + bonus) FROM employees GROUP BY team;` |
 
 **Analysis:** The base model omitted the `SUM()` aggregate function, returning only an arbitrary row's compensation per team rather than the total. The tuned model correctly applies the aggregation.
 
@@ -200,11 +200,11 @@ CREATE TABLE tasks (
 
 **Question:** What percentage of tasks are completed?
 
-| Model | Prediction |
-|-------|------------|
-| Reference | `SELECT (COUNT(CASE WHEN status = 'completed' THEN 1 END) * 100.0 / COUNT(*)) FROM tasks;` |
-| Base | `SELECT (COUNT(CASE WHEN status = 'completed' THEN 1 END. * 100.0) / COUNT(*)) AS percentage_completed FROM tasks;` |
-| Tuned | `SELECT (COUNT(CASE WHEN status = 'completed' THEN 1 END) * 100.0 / COUNT(*)) FROM tasks;` |
+| Model          | Prediction |
+|----------------|------------|
+| Reference      | `SELECT (COUNT(CASE WHEN status = 'completed' THEN 1 END) * 100.0 / COUNT(*)) FROM tasks;` |
+| Base qwen3-4b  | `SELECT (COUNT(CASE WHEN status = 'completed' THEN 1 END. * 100.0) / COUNT(*)) AS percentage_completed FROM tasks;` |
+| Tuned qwen3-4b | `SELECT (COUNT(CASE WHEN status = 'completed' THEN 1 END) * 100.0 / COUNT(*)) FROM tasks;` |
 
 **Analysis:** The base model produced invalid SQL with a syntax error (`END.` instead of `END`), causing query execution to fail. The tuned model generates syntactically correct SQL matching the reference.
 
