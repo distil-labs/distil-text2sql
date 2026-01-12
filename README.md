@@ -144,9 +144,9 @@ SELECT COUNT(*) FROM employees WHERE salary > 50000;
 
 **1. Seed Data:** We wrote ~50 examples covering simple queries, JOINs, aggregations, and subqueries. Available in `finetuning/data/`.
 
-**2. Synthetic Expansion:** Using our [data synthesis pipeline](https://www.distillabs.ai/blog/small-expert-agents-from-10-examples), we expanded to **~10,000 training examples** with diverse schemas across e-commerce, HR, healthcare, and other domains.
+**2. Synthetic Expansion:** Using our [data synthesis pipeline](https://www.distillabs.ai/blog/small-expert-agents-from-10-examples/?utm_source=github&utm_medium=referral&utm_campaign=text2sql), we expanded to **~10,000 training examples** with diverse schemas across e-commerce, HR, healthcare, and other domains.
 
-**3. Fine-tuning:** We chose Qwen3-4B based on our [benchmarking of 12 small language models](https://www.distillabs.ai/blog/we-benchmarked-12-small-language-models-across-8-tasks-to-find-the-best-base-model-for-fine-tuning), which showed it offers the best balance of capability and efficiency for fine-tuning. Training config: 4 epochs, full fine-tuning on ~10k examples.
+**3. Fine-tuning:** We chose Qwen3-4B based on our [benchmarking of 12 small language models](https://www.distillabs.ai/blog/we-benchmarked-12-small-language-models-across-8-tasks-to-find-the-best-base-model-for-fine-tuning/?utm_source=github&utm_medium=referral&utm_campaign=text2sql), which showed it offers the best balance of capability and efficiency for fine-tuning. Training config: 4 epochs, full fine-tuning on ~10k examples.
 
 ### Results
 
@@ -238,7 +238,7 @@ Write 50-100 examples covering your task's complexity range. You can use a large
 
 ### 3. Generate synthetic data
 
-Use the [distillabs.ai](https://distillabs.ai) platform to expand your seed data into thousands of training examples.
+Use the [distillabs.ai](https://distillabs.ai/?utm_source=github&utm_medium=referral&utm_campaign=text2sql) platform to expand your seed data into thousands of training examples.
 
 ### 4. Fine-tune
 
@@ -248,7 +248,7 @@ Train a small model (1B-4B parameters work well for narrow tasks) on your synthe
 
 Test on held-out examples. Compare against a large model baseline to know when you've succeeded.
 
-For custom training assistance, visit [distillabs.ai](https://www.distillabs.ai/) or reach out to us directly.
+For custom training assistance, visit [distillabs.ai](https://www.distillabs.ai/?utm_source=github&utm_medium=referral&utm_campaign=text2sql) or reach out to us directly.
 
 
 ## FAQ
@@ -275,13 +275,13 @@ The model achieves 80% accuracy, which means ~1 in 5 queries may need adjustment
 
 **Q: Can you train a model for my company's specific database?**
 
-Yes! Visit [distillabs.ai](https://www.distillabs.ai/) to discuss custom solutions trained on your schema and query patterns.
+Yes! Visit [distillabs.ai](https://www.distillabs.ai/?utm_source=github&utm_medium=referral&utm_campaign=text2sql) to discuss custom solutions trained on your schema and query patterns.
 
 
 ## Links
 
 <p align="center">
-  <a href="https://www.distillabs.ai/?utm_source=github&utm_medium=referral&utm_campaign=distil-text2sql">
+  <a href="https://www.distillabs.ai/?utm_source=github&utm_medium=referral&utm_campaign=text2sql">
     <img src="https://github.com/distil-labs/badges/blob/main/badge-distillabs-home.svg?raw=true" alt="Distil Labs Homepage" />
   </a>
   <a href="https://github.com/distil-labs">
