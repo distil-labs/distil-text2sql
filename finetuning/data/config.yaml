@@ -3,6 +3,7 @@ base:
   student_model_name: Qwen3-4B-Instruct-2507
   teacher_model_name: deepseek.v3.1
 synthgen:
+  generation_target: 128
   parallel_llm_calls: True
   mutation_topics: [
     "E-commerce: customers, orders, products, reviews",
