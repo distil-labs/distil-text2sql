@@ -1,5 +1,8 @@
 # Text2SQirreL 🐿️ : **Query your data in plain English**
+
 ![text2sql-logo.png](text2sql-logo.png)
+
+---
 
 *Turn natural language questions into SQL queries with a small, local model that matches cloud LLM accuracy.*
 
