@@ -1,5 +1,6 @@
 # Text2SQirreL 🐿️ : **Query your data in plain English**
 ![text2sql-logo.png](text2sql-logo.png)
+
 *Turn natural language questions into SQL queries with a small, local model that matches cloud LLM accuracy.*
 
 We fine-tuned a small language model to convert plain English questions into executable SQL queries. Because it's small, you can run it locally on your own machine, no API keys, no cloud dependencies, full privacy. Load your CSV files, ask questions, get answers.
