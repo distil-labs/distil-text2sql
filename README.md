@@ -10,9 +10,11 @@ We fine-tuned a small language model to convert plain English questions into exe
 | --- | --- | --- | --- | --- |
 | DeepSeek-V3 (teacher) | 685B | 80% | 48% | |
 | **Qwen3-4B (tuned)** | **4B** | **80%** | **60%** | [huggingface](https://huggingface.co/collections/distil-labs/distil-qwen3-4b-text2sql) |
+| **Qwen3-0.6B (tuned)** | **0.6B** | **74%** | **40%** | [huggingface](https://huggingface.co/distil-labs/distil-qwen3-0.6b-text2sql) |
 | Qwen3-4B (base) | 4B | 62% | 16% | |
+| Qwen3-0.6B (base) | 0.6B | 36% | 24% | |
 
-The tuned 4B model **matches the 685B teacher** on LLM-as-a-Judge accuracy and **exceeds it on exact match** while being **170x smaller**. 
+The tuned 4B model **matches the 685B teacher** on LLM-as-a-Judge accuracy and **exceeds it on exact match** while being **170x smaller**. The 0.6B model achieves **74% accuracy** with a **2x improvement** over its base model - ideal for edge deployment. 
 
 
 ## Quick Start
@@ -156,9 +158,11 @@ We evaluate using LLM-as-a-Judge (semantic equivalence), Exact Match, and ROUGE 
 | --- | --- | --- | --- |
 | DeepSeek-V3 (teacher) | 80% | 48% | 87.6% |
 | **Qwen3-4B (tuned)** | **80%** | **60%** | **89.5%** |
+| **Qwen3-0.6B (tuned)** | **74%** | **40%** | **88.5%** |
 | Qwen3-4B (base) | 62% | 16% | 84.2% |
+| Qwen3-0.6B (base) | 36% | 24% | 69.3% |
 
-The tuned 4B model matches the 685B teacher on semantic accuracy and actually exceeds it on exact match. On an M4 MacBook Pro, most queries return in under 2 seconds.
+The tuned 4B model matches the 685B teacher on semantic accuracy and actually exceeds it on exact match. The 0.6B model doubles the base model's accuracy while being small enough for mobile and edge deployment. On an M4 MacBook Pro, most queries return in under 2 seconds.
 
 ### Qualitative Examples
 
@@ -213,7 +217,9 @@ CREATE TABLE tasks (
 
 ## Model Variants
 
-We provide three model formats to fit different deployment needs:
+We provide multiple model sizes and formats to fit different deployment needs:
+
+### 4B Model (Best Accuracy)
 
 | Model | Format | Size | Use Case |
 |-------|--------|------|----------|
@@ -221,7 +227,13 @@ We provide three model formats to fit different deployment needs:
 | [distil-qwen3-4b-text2sql-gguf](https://huggingface.co/distil-labs/distil-qwen3-4b-text2sql-gguf) | GGUF (F16) | ~15 GB | Ollama, llama.cpp (full precision) |
 | [distil-qwen3-4b-text2sql-gguf-4bit](https://huggingface.co/distil-labs/distil-qwen3-4b-text2sql-gguf-4bit) | GGUF (Q4) | **~2.5 GB** | **Recommended for local use** |
 
-For most users, the **4-bit quantized GGUF** is the best choice, it's small enough to run on any laptop while maintaining full accuracy.
+### 0.6B Model (Edge/Mobile)
+
+| Model | Format | Size | Use Case |
+|-------|--------|------|----------|
+| [distil-qwen3-0.6b-text2sql](https://huggingface.co/distil-labs/distil-qwen3-0.6b-text2sql) | Safetensors | ~1.1 GB | Edge deployment, mobile, resource-constrained environments |
+
+For most users, the **4B 4-bit quantized GGUF** is the best choice, it's small enough to run on any laptop while maintaining full accuracy. For edge/mobile deployment where size is critical, the **0.6B model** offers a great balance of accuracy (74% LLM-as-a-Judge) and compactness.
 
 
 ## Train Your Own Model
