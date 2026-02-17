@@ -9,7 +9,7 @@ We fine-tuned a small language model to convert plain English questions into exe
 | Model | Parameters | LLM-as-a-Judge | Exact Match | Model Link |
 | --- | --- | --- | --- | --- |
 | DeepSeek-V3 (teacher) | 685B | 80% | 48% | |
-| **Qwen3-4B (tuned)** | **4B** | **80%** | **60%** | [huggingface](https://huggingface.co/collections/distil-labs/distil-qwen3-4b-text2sql) |
+| **Qwen3-4B (tuned)** | **4B** | **80%** | **60%** | [huggingface](https://huggingface.co/distil-labs/distil-qwen3-4b-text2sql) |
 | **Qwen3-0.6B (tuned)** | **0.6B** | **74%** | **40%** | [huggingface](https://huggingface.co/distil-labs/distil-qwen3-0.6b-text2sql) |
 | Qwen3-4B (base) | 4B | 62% | 16% | |
 | Qwen3-0.6B (base) | 0.6B | 36% | 24% | |
